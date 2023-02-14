@@ -5,16 +5,16 @@ import java.awt.*;
 /**
  * Created by Niklas on 2016-01-19.
  */
-class Triangle extends Polygon {
+class Triangle extends AbstractPolygon {
     Triangle(int x, int y) {
         super(x,y);
     }
 
     @Override
     public void paint(Graphics g){
-        g.drawLine(centerPoint.x, centerPoint.y-10, centerPoint.x-10, centerPoint.y+10);
-        g.drawLine(centerPoint.x-10, centerPoint.y+10,
-                centerPoint.x+10, centerPoint.y+10);
-        g.drawLine(centerPoint.x+10, centerPoint.y+10, centerPoint.x, centerPoint.y-10);
+        g.drawLine(getCenterX(), getCenterY()-10, getCenterX()-10, getCenterY()+10);
+        g.drawLine(getCenterX()-10, getCenterY()+10,
+                getCenterX()+10, getCenterY()+10);
+        g.drawLine(getCenterX()+10, getCenterY()+10, getCenterX(), getCenterY()-10);
     }
 }

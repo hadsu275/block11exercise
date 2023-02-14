@@ -1,16 +1,19 @@
 package DIT953.polygonModel.adapter;
 
-import DIT953.polygonModel.shapes.Polygon;
-
 import java.awt.*;
 
 /**
  * Created by Niklas on 2016-02-21.
+ *
+ * The purpose of this class is to turn an object of type
+ *     DIT953.polygonModel.shapes.Polygon
+ * into an object of type
+ *     DIT953.polygonModel.adapter.Polygon
  */
-/* package-private */ class PolygonWrapper implements IPolygon {
-    private Polygon wrappedPolygon;
+/* package-private */ class PolygonWrapper implements Polygon {
+    private final DIT953.polygonModel.shapes.Polygon wrappedPolygon;
 
-    PolygonWrapper(Polygon toBeWrapped) {
+    PolygonWrapper(DIT953.polygonModel.shapes.Polygon toBeWrapped) {
         this.wrappedPolygon = toBeWrapped;
     }
 
@@ -27,7 +30,12 @@ import java.awt.*;
     }
 
     @Override
-    public Point getCenter() {
-        return wrappedPolygon.getCenterPoint();
+    public int getCenterX() {
+        return wrappedPolygon.getCenterPoint().x;
+    }
+
+    @Override
+    public int getCenterY() {
+        return wrappedPolygon.getCenterPoint().y;
     }
 }

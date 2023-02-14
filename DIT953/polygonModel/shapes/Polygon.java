@@ -25,12 +25,12 @@ public abstract class Polygon extends Shape {
 
     }
 
-    protected abstract int[][] getOffsets();
+    protected abstract Point[] getOffsets();
 
     private List<Point> getCorners() {
         // Find the data for this particular polygon
         Point center = getCenterPoint();
-        int[][] offsets = getOffsets();
+        Point[] offsets = getOffsets();
         double alpha = Math.toRadians(getRotation());
         // Calculate points based on that data
         return calculateCornerPoints(center, offsets, alpha);
@@ -40,20 +40,20 @@ public abstract class Polygon extends Shape {
     *  particular polygon. You can tell by the fact that the code does not
     *  mention any members (fields or methods) from the object itself. */
 
-    private List<Point> calculateCornerPoints(Point center, int[][] offsets, double alpha) {
+    private List<Point> calculateCornerPoints(Point center, Point[] offsets, double alpha) {
         List<Point> corners = new ArrayList<>(offsets.length) ;
-        for (int[] pointOffsets : offsets) {
+        for (Point pointOffsets : offsets) {
             Point newCorner = calculateCornerPoint(center, pointOffsets, alpha);
             corners.add(newCorner);
         }
         return corners;
     }
-    private Point calculateCornerPoint(Point center, int[] offset, double alpha) {
+    private Point calculateCornerPoint(Point center, Point offset, double alpha) {
         return rotatePoint(center, alpha,
                     movePoint(center, offset));
     }
-    private Point movePoint(Point center, int[] offset) {
-        return new Point(center.x+ offset[0], center.y+ offset[1]);
+    private Point movePoint(Point center, Point offset) {
+        return new Point(center.x+ offset.x, center.y+ offset.y);
     }
     private Point rotatePoint(Point center, double alpha, Point newCorner) {
         double newX = center.x + (newCorner.x - center.x) * Math.cos(alpha) - (newCorner.y - center.y) * Math.sin(alpha);

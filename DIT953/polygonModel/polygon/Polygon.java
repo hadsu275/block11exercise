@@ -1,29 +1,13 @@
 package DIT953.polygonModel.polygon;
 
-import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Niklas on 2016-01-19.
+ * Created by Niklas on 2016-02-19.
  */
-abstract class Polygon extends JComponent implements IPolygon {
-    public Point centerPoint;
-
-    Polygon(Point center){
-        this.centerPoint = center;
-    }
-    Polygon(int x, int y){
-        this(new Point(x,y));
-    }
-
-    public void updateCenter(int x, int y){
-        this.centerPoint = new Point(x,y);
-    }
-    public Point getCenter(){
-        return centerPoint;
-    }
-
-    @Override
-    public abstract void paint(Graphics g)//paint
-    ;
+public interface Polygon {
+    void paint(Graphics g);
+    void updateCenter(int newX, int newY);
+    int getCenterX();
+    int getCenterY();
 }

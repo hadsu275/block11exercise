@@ -1,7 +1,7 @@
 package DIT953;
 
 /* This is now all we (can) use from the sub-package */
-import DIT953.polygonModel.polygon.IPolygon;
+import DIT953.polygonModel.polygon.Polygon;
 import DIT953.polygonModel.polygon.PolygonFactory;
 
 /* By commenting out the imports above, and instead importing the adapter package,
@@ -14,7 +14,7 @@ import java.awt.Graphics;
 import java.util.*;
 
 public class DrawPolygons extends JComponent{
-    public ArrayList<IPolygon> polygons;
+    public ArrayList<Polygon> polygons;
     public boolean direction = true;
     public int ticker = 0;
     public JFrame frame;
@@ -31,8 +31,8 @@ public class DrawPolygons extends JComponent{
     public void update(){
         ticker++;
         int value = direction ? 10 : -10;
-        for (IPolygon p: polygons){
-            p.updateCenter(p.getCenter().x+value, p.getCenter().y+value);
+        for (Polygon p: polygons){
+            p.updateCenter(p.getCenterX()+value, p.getCenterY()+value);
         }
         if (ticker > 10) {
             direction = !direction;
@@ -43,7 +43,7 @@ public class DrawPolygons extends JComponent{
 
     @Override
     public void paint(Graphics g) {
-        for (IPolygon currentPolygon : polygons) {
+        for (Polygon currentPolygon : polygons) {
             currentPolygon.paint(g);
         }
     }//paint
