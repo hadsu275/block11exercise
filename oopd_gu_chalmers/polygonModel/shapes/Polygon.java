@@ -1,4 +1,4 @@
-package DIT953.polygonModel.shapes;
+package oopd_gu_chalmers.polygonModel.shapes;
 
 import java.awt.*;
 import java.util.ArrayList;

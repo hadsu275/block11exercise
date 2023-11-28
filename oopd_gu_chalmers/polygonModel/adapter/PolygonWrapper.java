@@ -1,4 +1,4 @@
-package DIT953.polygonModel.adapter;
+package oopd_gu_chalmers.polygonModel.adapter;
 
 import java.awt.*;
 
@@ -11,9 +11,9 @@ import java.awt.*;
  *     DIT953.polygonModel.adapter.Polygon
  */
 /* package-private */ class PolygonWrapper implements Polygon {
-    private final DIT953.polygonModel.shapes.Polygon wrappedPolygon;
+    private final oopd_gu_chalmers.polygonModel.shapes.Polygon wrappedPolygon;
 
-    PolygonWrapper(DIT953.polygonModel.shapes.Polygon toBeWrapped) {
+    PolygonWrapper(oopd_gu_chalmers.polygonModel.shapes.Polygon toBeWrapped) {
         this.wrappedPolygon = toBeWrapped;
     }
 

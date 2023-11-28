@@ -1,6 +1,6 @@
-package DIT953.polygonModel.adapter;
+package oopd_gu_chalmers.polygonModel.adapter;
 
-import DIT953.polygonModel.shapes.*;
+import oopd_gu_chalmers.polygonModel.shapes.*;
 /**
  * Created by Niklas on 2016-02-19.
  */

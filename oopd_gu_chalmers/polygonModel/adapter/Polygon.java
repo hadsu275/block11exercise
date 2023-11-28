@@ -1,4 +1,4 @@
-package DIT953.polygonModel.polygon;
+package oopd_gu_chalmers.polygonModel.adapter;
 
 import java.awt.*;
 
