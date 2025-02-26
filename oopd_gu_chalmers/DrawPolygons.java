@@ -13,32 +13,16 @@ import javax.swing.*;
 import java.awt.Graphics;
 import java.util.*;
 
-public class DrawPolygons extends JComponent{
-    public ArrayList<Polygon> polygons;
-    public boolean direction = true;
-    public int ticker = 0;
-    public JFrame frame;
+public class DrawPolygons extends PlolygonModel {
 
     public DrawPolygons(){
-        polygons = new ArrayList<>(10);
+        super();
 
         polygons.add(PolygonFactory.createSquare(50,50));
         polygons.add(PolygonFactory.createTriangle(100,100));
         polygons.add(PolygonFactory.createRectangle(50,150));
 
     }//constructor
-
-    public void update(){
-        ticker++;
-        int value = direction ? 10 : -10;
-        for (Polygon p: polygons){
-            p.updateCenter(p.getCenterX()+value, p.getCenterY()+value);
-        }
-        if (ticker > 10) {
-            direction = !direction;
-            ticker = 0;
-        }
-    }
 
     @Override
     public void paint(Graphics g) {
